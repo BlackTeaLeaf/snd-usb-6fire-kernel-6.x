@@ -1,0 +1,127 @@
+0.6.2
+---------------------------
+- added support for snd_card_new() (thanks to crepererum)
+- grsecurity compatibility (thanks to crepererum)
+
+0.6.1
+---------------------------
+- usb buffers are now allocated with kmalloc()
+- Makefile can now select kernel version (thanks to prettyvanilla for this)
+- firmware check relaxed
+
+0.6.0
+---------------------------
+- introduced kernel version awareness into code
+- changed README to contain a hint about volume and muting
+
+0.5.7
+---------------------------
+- updated driver boilerplate
+
+0.5.6
+---------------------------
+- fixed a bug that muted/unmuted the wrong channels
+
+0.5.5
+---------------------------
+- fixed a bug that on some kernel version prevented building with error
+  "expected declaration specifiers or '...' before string"
+- target kremove in Makefile now also removes compressed modules
+
+0.5.4
+---------------------------
+- added firmware versions that have been reported to work
+- fixed a bug that caused noise when capturing high sample rates
+- fixed a bug that prevented high sample rates from being selected
+- temporarily disabled pcm_mode_both because of remaining problems
+- added capture gain control for inputs 1/2
+- minor control updates: channel names changed, dB scale added,
+  virtual master introduced, log conversion removed
+
+0.5.3
+---------------------------
+- fixed a bug that prevented urb buffers from being freed on card disconnect
+- fixed a bug that caused audio problems after decreasing period size
+- modified module parameter "use_tasklet" and renamed to "tasklet_thresh":
+  tasklet usage now dynamically selectable, dependend on period size
+
+0.5.2
+---------------------------
+- improved period size handling, urb size not fixed any longer but dependend
+  on selected period size
+- pcm interface names improved
+
+0.5.1
+---------------------------
+- fixed a bug that caused the driver to panic when device was disconnected
+  while usage
+- changed buffer and period limits to 0.3.x since these settings worked better
+
+0.5.0
+---------------------------
+- added digital output (no passthrough yet)
+- added module parameter "pcm_mode"
+
+0.4.0
+---------------------------
+- complete rework of pcm handling
+- added module parameter "use_tasklet"
+- fixed a bug that caused firmware not to load properly
+
+0.3.6
+---------------------------
+Thanks to Holger Ruckdeschel, who found out how to make these features possible.
+
+- mute switches introduced
+- volume control now for each individual analog channel
+
+0.3.5
+---------------------------
+- fixed a bug that caused problems with available samplerates
+- Makefile now has a "kremove" target that allows to remove all snd-usb-6fire
+  modules from the kernel module directory
+
+0.3.4
+---------------------------
+- digital thru implemented to enable the device to convert from coax to
+  optical and vice versa
+
+0.3.3
+---------------------------
+- fixed installation path for module (now extra/ instead of extras/)
+- fixed capture buffer position when capturing in S32_LE
+
+0.3.2
+---------------------------
+- added sampleformat 32 bit little endian
+
+0.3.1
+---------------------------
+- check for device version removed before uploading firmware
+
+0.3.0
+---------------------------
+- improved stability
+- SPDIF out removed from features
+- samplerates 176400 and 192000 now supported
+
+0.2.0
+---------------------------
+- MIDI in and out working
+- channel 1 and 2 are copied to SPDIF out
+
+0.1.2
+---------------------------
+- pointer from integer warning fixed in capture16
+- playback and capture now also available for 8 and 24 bits per sample
+- fixed bug that didn't allow other samplerates than 44100
+
+0.1.1
+---------------------------
+- capture at 16 bit, 6 channels, samplerate 44100 to 96000
+
+0.1.0
+---------------------------
+- playback at 16 bit, 6 channels, samplerate 44100 to 96000
+- firmware upload for devices that recently have been connected to power
+- hardware master volume

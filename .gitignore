@@ -1,0 +1,23 @@
+# Kernel module build artifacts
+*.o
+*.ko
+*.mod
+*.mod.c
+*.order
+*.symvers
+.*.cmd
+.tmp_versions/
+
+# Output binaries
+snd-usb-6fire
+
+# Firmware script temporary files
+6fire-firmware.rpm
+
+# Editor temporary files
+*~
+*.swp
+
+# Compressed modules
+*.ko.zst
+*.ko.xz
