@@ -13,6 +13,17 @@ This is the driver for the TerraTec DMX 6Fire USB. Current features include:
 - MIDI in/out
 - Digital thru: device may act as converter coax <-> optical
 
+Installation and Safety
+-----------------------
+
+**Disconnect the DMX 6Fire USB before installation.** The stock kernel module
+caused a kernel panic in the hardware-tested environment. The fixed module is
+named `snd-usb-6fire-fixed` so `snd-usb-6fire` can remain blacklisted.
+
+Follow [INSTALL](INSTALL) for the complete DKMS installation, stock-module
+blacklist, Secure Boot, migration, verification, kernel-update, and uninstall
+procedures. Do not mix `make install` with DKMS installation.
+
 What is yet missing:
 - Digital input
 - SPDIF passthrough
@@ -20,7 +31,9 @@ What is yet missing:
 
 Firmware Installation
 ----------------------
-This driver requires proprietary firmware to function. A script is provided to automatically download and install it:
+This driver requires proprietary firmware to function. The complete
+installation procedure is documented in [INSTALL](INSTALL). A script is
+provided to download and install the firmware:
 
     $ chmod +x get_firmware.sh
     $ ./get_firmware.sh
@@ -112,6 +125,11 @@ This version is a restoration of the original driver by Torsten Schenk, updated 
     Linux 6.x and 7.x. Linux 6.0 through 6.3 obtain the declaration from
     `<linux/kernel.h>`, while Linux 6.4 and newer include `<linux/hex.h>`
     explicitly.
+*   **Safe Module Coexistence**: The updated out-of-tree driver is built as
+    `snd-usb-6fire-fixed`, while the stock kernel driver remains
+    `snd-usb-6fire`. This allows the stock module to be blacklisted without
+    preventing the fixed module from loading automatically for the same USB
+    device.
 *   **Testing & Firmware**: Firmware sourcing, verification, and hardware testing performed by the repository maintainer.
 
 Tested Environment

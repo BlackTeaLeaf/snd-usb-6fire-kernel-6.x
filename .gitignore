@@ -9,7 +9,7 @@
 .tmp_versions/
 
 # Output binaries
-snd-usb-6fire
+snd-usb-6fire-fixed
 
 # Firmware script temporary files
 6fire-firmware.rpm

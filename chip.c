@@ -254,7 +254,7 @@ static struct usb_device_id device_table[] = {
 MODULE_DEVICE_TABLE(usb, device_table);
 
 static struct usb_driver usb_driver = {
-	.name = "snd-usb-6fire",
+	.name = "snd-usb-6fire-fixed",
 	.probe = usb6fire_chip_probe,
 	.disconnect = usb6fire_chip_disconnect,
 	.id_table = device_table,
