@@ -82,7 +82,9 @@ artifacts:
 
   $ sudo install -d -m 0755 /usr/src/sixfireusb-1.0
   $ sudo cp -a Makefile dkms.conf LICENSE CHANGES README.md \
-      *.c *.h /usr/src/sixfireusb-1.0/
+      chip.c comm.c control.c firmware.c midi.c pcm.c substream.c urbs.c \
+      chip.h comm.h common.h control.h firmware.h midi.h pcm.h rates.h \
+      substream.h urbs.h /usr/src/sixfireusb-1.0/
 
 Register, build, and install the module for the running kernel:
 
