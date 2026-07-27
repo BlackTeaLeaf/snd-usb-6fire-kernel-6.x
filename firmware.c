@@ -17,6 +17,11 @@
 #include <linux/module.h>
 #include <linux/bitrev.h>
 #include <linux/kernel.h>
+#include <linux/version.h>
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 4, 0)
+#include <linux/hex.h>
+#endif
 
 #include "firmware.h"
 //#include "chip.h"

@@ -1,5 +1,5 @@
-TerraTec DMX 6Fire USB driver for ALSA (Linux 6.x compatible)
-=============================================
+TerraTec DMX 6Fire USB driver for ALSA (Linux 6.x and 7.x compatible)
+===================================================================
 
 This is the driver for the TerraTec DMX 6Fire USB. Current features include:
 - Firmware uploading if device has been reconnected to power
@@ -107,12 +107,21 @@ Credits & Acknowledgements
 ---------------------------
 This version is a restoration of the original driver by Torsten Schenk, updated to work with modern Linux Kernels.
 
-*   **Code Restoration**: Ported to Linux Kernel 6.x APIs with the assistance of Gemini AI.
+*   **Code Restoration**: Ported to modern Linux Kernel APIs with the assistance of Gemini AI.
+*   **Kernel Compatibility**: Supports the `hex_to_bin()` header layout used by
+    Linux 6.x and 7.x. Linux 6.0 through 6.3 obtain the declaration from
+    `<linux/kernel.h>`, while Linux 6.4 and newer include `<linux/hex.h>`
+    explicitly.
 *   **Testing & Firmware**: Firmware sourcing, verification, and hardware testing performed by the repository maintainer.
 
 Tested Environment
 -------------------
 *   **OS**: Nobara Linux 43
-*   **Kernel**: 6.18.7-200.nobara.fc43.x86_64
+*   **Hardware tested**: 6.18.7-200.nobara.fc43.x86_64
+*   **Build tested**: 6.19.11-201.nobara.fc43.x86_64 and
+    7.0.9-200.nobara.fc43.x86_64
 
-**Important**: The stock `snd-usb-6fire` driver included in the upstream Linux Kernel was observed to cause immediate system crashes (Kernel Panic) upon firmware initialization on this kernel version. This updated driver resolves these stability issues.
+**Important**: The stock `snd-usb-6fire` driver included in the upstream Linux
+Kernel was observed to cause immediate system crashes (Kernel Panic) upon
+firmware initialization on the hardware-tested kernel version. This updated
+driver resolves these stability issues.
